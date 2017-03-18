@@ -1,2 +1,1 @@
-# roomMonitoringSystemByBBB
-room monitoring system by Beagle Bone Black
+# Room monitoring system by Beagle Bone Black
