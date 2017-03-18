@@ -14,16 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__Author__ = "Yoshihiro Tanaka"
-__date__ = "2015-01-20"
-
 import time
-import cv, cv2
+import cv
+import cv2
 import numpy as np
 import Adafruit_BBIO.GPIO as GPIO
 
+__Author__ = "Yoshihiro Tanaka"
+__date__ = "2015-01-20"
 
-def takePicture(folder):
+
+def take_picture(folder):
     code = "-".join([str(r) for r in list(time.localtime())])
     capture = cv2.VideoCapture(0)
     capture.set(cv.CV_CAP_PROP_FRAME_WIDTH, 320)
@@ -34,7 +35,7 @@ def takePicture(folder):
         cv2.imwrite(folder + "/" + code + ".png", img)
 
 
-def buttonCheck():
+def check_button():
     GPIO.setup("P9_15", GPIO.IN)
     GPIO.setup("P9_12", GPIO.IN)
 
@@ -45,14 +46,14 @@ def buttonCheck():
                 once = True
             else:
                 if once:
-                    takePicture("in")
+                    take_picture("in")
                     once = False
 
             if GPIO.input("P9_15"):
                 once = True
             else:
                 if once:
-                    takePicture("out")
+                    take_picture("out")
                     once = False
         except KeyboardInterrupt:
             break
@@ -60,4 +61,4 @@ def buttonCheck():
 
 
 if __name__ == '__main__':
-    buttonCheck()
+    check_button()

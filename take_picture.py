@@ -14,15 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import time
+import os
+import cv
+import cv2
+import numpy as np
+
 __Author__ = "Yoshihiro Tanaka"
 __date__ = "2015-01-20"
 
-import time
-import cv, cv2, os
-import numpy as np
 
-
-def takePicture(folder):
+def take_picture(folder):
     code = "-".join([str(r) for r in list(time.localtime())])
     capture = cv2.VideoCapture(0)
     capture.set(cv.CV_CAP_PROP_FRAME_WIDTH, 320)
@@ -36,4 +38,4 @@ def takePicture(folder):
 
 
 if __name__ == '__main__':
-    takePicture("up")
+    take_picture("up")
