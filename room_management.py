@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-__Author__ =  "Yoshihiro Tanaka"
-__date__   =  "2015-01-20"
+__Author__ = "Yoshihiro Tanaka"
+__date__ = "2015-01-20"
 
 import time
 import cv, cv2
@@ -32,6 +32,7 @@ def takePicture(folder):
     ret, img = capture.read()
     if ret:
         cv2.imwrite(folder + "/" + code + ".png", img)
+
 
 def buttonCheck():
     GPIO.setup("P9_15", GPIO.IN)
@@ -56,6 +57,7 @@ def buttonCheck():
         except KeyboardInterrupt:
             break
     GPIO.cleanup()
+
 
 if __name__ == '__main__':
     buttonCheck()
